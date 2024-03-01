@@ -2,15 +2,15 @@ import PropTypes from "prop-types";
 import { Button } from "rsuite";
 import "../assets/css/boton.css";
 
-const CustomButton = ({ texto, manejarClic }) => (
-  <Button color="blue" appearance="primary" size="lg"  onClick={manejarClic}>
-    {texto}
+const CustomButton = ({ text, handleClick }) => (
+  <Button color="blue" appearance="primary" size="lg"  onClick={handleClick}>
+    {text}
   </Button>
 );
 
 CustomButton.propTypes = {
-  texto: PropTypes.string.isRequired,
-  manejarClic: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default CustomButton;

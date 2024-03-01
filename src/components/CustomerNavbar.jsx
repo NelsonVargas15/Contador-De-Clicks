@@ -8,7 +8,6 @@ const CustomNavbar = ({ onSelect, activeKey, ...props }) => {
   return (
     <Header className="CustomNavbar" id="navbar">
       <Navbar  appearance="inverse" {...props}>
-       
         <Nav onSelect={onSelect} activeKey={activeKey}>
           <Nav.Item href="/" eventKey="1" icon={<HomeIcon />}>
             Home
