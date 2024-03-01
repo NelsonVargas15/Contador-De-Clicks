@@ -1,26 +1,50 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Stack } from "rsuite";
-import Contador from "../components/Contador";
+import Counter from "../components/Counter";
 import CustomButton from "../components/CustomButton";
-import "../assets/css/page/home.css"
+import ModalNotification from "../modals/ModalNotification";
+import "../assets/css/page/home.css";
 
 const Home = () => {
-  const [numClics, setNumClics] = useState(0);
+  const [clicksCount, setClicksCount] = useState(0);
+  const [lastGoal, setLastGoal] = useState(0);
+  const [showNotification, setShowNotification] = useState(false);
 
-  const manejarClic = () => {
-    setNumClics(numClics + 1);
+  const handleButtonClick = () => {
+    const newClicksCount = clicksCount + 1;
+    setClicksCount(newClicksCount);
+
+    if (newClicksCount === 10 && !showNotification && lastGoal < 10) {
+      setShowNotification(true);
+      setLastGoal(newClicksCount);
+    }
   };
 
-  const reiniciarContador = () => {
-    setNumClics(0);
+  const handleResetClick = () => {
+    setLastGoal(clicksCount); 
+    setClicksCount(0);
+    setShowNotification(false);
   };
+
+  useEffect(() => {
+    if (lastGoal >= 10) {
+      setShowNotification(false);
+    }
+  }, [lastGoal]);
 
   return (
     <Stack className="Home" justifyContent="center" alignItems="center" direction="column">
-      <Contador numClics={numClics} />
+      {showNotification && (
+        <ModalNotification
+          type="success"
+          header="Congratulations"
+          content="You've achieved the first milestone!"
+        />
+      )}
+      <Counter clicksCount={clicksCount} />
       <Stack alignItems="stretch" justifyContent="space-between" spacing={20}>
-        <CustomButton texto="Click" manejarClic={manejarClic} />
-        <CustomButton texto="Reiniciar" manejarClic={reiniciarContador} />
+        <CustomButton text="Click" handleClick={handleButtonClick} />
+        <CustomButton text="Reset" handleClick={handleResetClick} />
       </Stack>
     </Stack>
   );
