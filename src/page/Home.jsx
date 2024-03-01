@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Stack } from "rsuite";
 import Contador from "../components/Contador";
 import CustomButton from "../components/CustomButton";
+import "../assets/css/page/home.css"
 
 const Home = () => {
   const [numClics, setNumClics] = useState(0);
@@ -15,7 +16,7 @@ const Home = () => {
   };
 
   return (
-    <Stack justifyContent="center" alignItems="center" direction="column">
+    <Stack className="Home" justifyContent="center" alignItems="center" direction="column">
       <Contador numClics={numClics} />
       <Stack spacing={20}>
         <CustomButton texto="Clic" manejarClic={manejarClic} />

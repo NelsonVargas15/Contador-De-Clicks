@@ -1,0 +1,14 @@
+.rs-navbar-inverse{
+  
+  background-color: hsl(291, 29%, 23%) !important; ;
+}
+
+.rs-navbar {
+  height: 8vh !important;
+}
+
+.rs-navbar-item{
+    font-size: large !important;
+    }
+
+ 

@@ -2,14 +2,15 @@ import PropTypes from 'prop-types';
 import { Navbar, Nav, Header } from 'rsuite';
 import HomeIcon from '@rsuite/icons/legacy/Home';
 import CogIcon from '@rsuite/icons/legacy/Cog';
+import "../assets/css/Navbar.css"
 
 const CustomNavbar = ({ onSelect, activeKey, ...props }) => {
   return (
     <Header className="CustomNavbar" id="navbar">
-      <Navbar {...props}>
-        <Navbar.Brand href="/">My Application</Navbar.Brand>
+      <Navbar  appearance="inverse" {...props}>
+       
         <Nav onSelect={onSelect} activeKey={activeKey}>
-          <Nav.Item eventKey="1" icon={<HomeIcon />}>
+          <Nav.Item href="/" eventKey="1" icon={<HomeIcon />}>
             Home
           </Nav.Item>
           <Nav.Item eventKey="2" href="/aboutme">
