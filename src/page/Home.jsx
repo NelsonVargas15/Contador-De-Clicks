@@ -18,8 +18,8 @@ const Home = () => {
   return (
     <Stack className="Home" justifyContent="center" alignItems="center" direction="column">
       <Contador numClics={numClics} />
-      <Stack spacing={20}>
-        <CustomButton texto="Clic" manejarClic={manejarClic} />
+      <Stack alignItems="stretch" justifyContent="space-between" spacing={20}>
+        <CustomButton texto="Click" manejarClic={manejarClic} />
         <CustomButton texto="Reiniciar" manejarClic={reiniciarContador} />
       </Stack>
     </Stack>

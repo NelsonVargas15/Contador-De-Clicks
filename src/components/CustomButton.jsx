@@ -3,7 +3,7 @@ import { Button } from "rsuite";
 import "../assets/css/boton.css";
 
 const CustomButton = ({ texto, manejarClic }) => (
-  <Button color="blue" appearance="primary" size="lg" block onClick={manejarClic}>
+  <Button color="blue" appearance="primary" size="lg"  onClick={manejarClic}>
     {texto}
   </Button>
 );
