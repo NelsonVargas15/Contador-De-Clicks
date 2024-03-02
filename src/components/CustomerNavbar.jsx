@@ -18,7 +18,7 @@ const CustomNavbar = ({ onSelect, activeKey, ...props }) => {
           <Nav.Item eventKey="3">Upcoming</Nav.Item>
         </Nav>
         <Nav pullRight>
-          <Nav.Item eventKey="4" icon={<CogIcon />}>
+          <Nav.Item  href="/achievements" eventKey="4" icon={<CogIcon />}>
             Achievements
           </Nav.Item>
         </Nav>
