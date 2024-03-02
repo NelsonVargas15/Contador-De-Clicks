@@ -14,20 +14,20 @@ const Home = () => {
     const newClicksCount = clicksCount + 1;
     setClicksCount(newClicksCount);
 
-    if (newClicksCount === 10 && !showNotification && lastGoal < 10) {
+    if (newClicksCount === 50 && !showNotification && lastGoal < 50) {
       setShowNotification(true);
       setLastGoal(newClicksCount);
     }
   };
 
   const handleResetClick = () => {
-    setLastGoal(clicksCount); 
+    setLastGoal(clicksCount);
     setClicksCount(0);
     setShowNotification(false);
   };
 
   useEffect(() => {
-    if (lastGoal >= 10) {
+    if (lastGoal >= 50) {
       setShowNotification(false);
     }
   }, [lastGoal]);
