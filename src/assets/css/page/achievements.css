@@ -1,5 +1,36 @@
 .Achievements {
-    height: 90vh;
-    padding: 20px;
-  }
-  
+  height: 90vh;
+  padding: 20px;
+}
+
+.Achievements-Panel {
+  height: 600px;
+  background-color: rgba(32, 47, 67, 0.8);
+  color: #acb2b8;
+  margin-bottom: 2px;
+  padding: 20px;
+  border: 1px solid #26384f;
+  box-shadow: 0 0 5px #000;
+}
+
+.rs-divider {
+  background-color: #5a5a67;
+}
+
+.Logros {
+  width: 100%;
+  max-height: 52px;
+}
+
+.Text {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.Text-Panel {
+  padding: 40px !important;
+}
+
+.rs-panel-body {
+  padding: 0px !important;
+}

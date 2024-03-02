@@ -10,6 +10,11 @@ const Home = () => {
   const [lastGoal, setLastGoal] = useState(0);
   const [showNotification, setShowNotification] = useState(false);
 
+  const updateLocalStorage = () => {
+    localStorage.setItem("lastGoal", JSON.stringify(lastGoal));
+  };
+
+  console.log(lastGoal)
   const handleButtonClick = () => {
     const newClicksCount = clicksCount + 1;
     setClicksCount(newClicksCount);
@@ -24,13 +29,15 @@ const Home = () => {
     setLastGoal(clicksCount);
     setClicksCount(0);
     setShowNotification(false);
+    updateLocalStorage(); 
   };
 
   useEffect(() => {
-    if (lastGoal >= 50) {
-      setShowNotification(false);
+    const storedLastGoal = localStorage.getItem("lastGoal");
+    if (storedLastGoal) {
+      setLastGoal(JSON.parse(storedLastGoal));
     }
-  }, [lastGoal]);
+  }, []); 
 
   return (
     <Stack className="Home" justifyContent="center" alignItems="center" direction="column">
