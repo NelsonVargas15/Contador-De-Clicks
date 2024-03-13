@@ -4,7 +4,7 @@
 }
 
 .Achievements-Panel {
-  height: 600px;
+  width: 400px;
   background-color: rgba(32, 47, 67, 0.8);
   color: #acb2b8;
   margin-bottom: 2px;
@@ -24,11 +24,13 @@
 
 .Text {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .Text-Panel {
-  padding: 40px !important;
+  background-color: rgba(103, 40, 83, 0.8);
+  padding: 4px !important;
+  width: 300px;
 }
 
 .rs-panel-body {

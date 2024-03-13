@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { Stack } from "rsuite";
 import Counter from "../components/Counter";
 import CustomButton from "../components/CustomButton";
@@ -10,11 +10,16 @@ const Home = () => {
   const [lastGoal, setLastGoal] = useState(0);
   const [showNotification, setShowNotification] = useState(false);
 
-  const updateLocalStorage = () => {
-    localStorage.setItem("lastGoal", JSON.stringify(lastGoal));
+
+
+
+
+  const updateLocalStorage = (value) => {
+    localStorage.setItem("lastGoal", JSON.stringify(value));
   };
 
-  console.log(lastGoal)
+  console.log(lastGoal);
+
   const handleButtonClick = () => {
     const newClicksCount = clicksCount + 1;
     setClicksCount(newClicksCount);
@@ -22,14 +27,18 @@ const Home = () => {
     if (newClicksCount === 50 && !showNotification && lastGoal < 50) {
       setShowNotification(true);
       setLastGoal(newClicksCount);
+      updateLocalStorage(newClicksCount);
     }
   };
 
   const handleResetClick = () => {
-    setLastGoal(clicksCount);
+    const storedLastGoal = localStorage.getItem("lastGoal");
+    const initialLastGoal = storedLastGoal ? JSON.parse(storedLastGoal) : 0;
+
+    setLastGoal(initialLastGoal);
     setClicksCount(0);
     setShowNotification(false);
-    updateLocalStorage(); 
+    updateLocalStorage(initialLastGoal);
   };
 
   useEffect(() => {
@@ -37,8 +46,9 @@ const Home = () => {
     if (storedLastGoal) {
       setLastGoal(JSON.parse(storedLastGoal));
     }
-  }, []); 
+  }, []);
 
+  console.log(lastGoal)
   return (
     <Stack className="Home" justifyContent="center" alignItems="center" direction="column">
       {showNotification && (
